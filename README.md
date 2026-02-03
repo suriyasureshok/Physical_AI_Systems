@@ -2,7 +2,7 @@
 
 This repository contains a collection of **small, focused mini projects** designed to build intuition and hands-on experience for an **AI Systems Engineer (SDE-level)** role.
 
-Each project is intentionally scoped to explore how **algorithms, linear algebra, and ML workloads interact with real system constraints** such as:
+Each project is intentionally scoped to explore how **algorithms, mathematis, and ML workloads interact with real system constraints** such as:
 - Memory usage
 - Latency
 - Batch size
@@ -42,7 +42,9 @@ MINI_PROJECTS/
 │   ├── week1/
 │   │   ├── week_1.ipynb   # Week 1: Embedding Dimension vs Latency & Memory
 │   │   └── README.md      # Week 1 documentation
-│   └── week2/             # Future experiments
+│   └── week2/             
+│       ├── week_2.ipynb   # Week 2: Latency Distribution and Tail Behavior
+│       └── README.md      # Week 2 documentation
 │
 ├── README.md              # Main project documentation
 ├── pyproject.toml         # Python project configuration
@@ -60,7 +62,7 @@ MINI_PROJECTS/
 | Week | Mini Project | Focus Area | Status |
 |:----:|:------------|:-----------|:------:|
 | 1 | Embedding Dimension vs Latency & Memory | System Performance Analysis | Complete |
-| 2 | TBD | TBD | Planned |
+| 2 | Latency Distribution and Tail Behavior | Statistical Latency Analysis | Complete |
 
 ### Project Characteristics
 

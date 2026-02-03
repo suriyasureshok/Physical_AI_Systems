@@ -17,7 +17,7 @@ This project bridges multiple domains:
 |:-------|:----------------|
 | Linear Algebra | Vectors, matrix multiplication, dimensionality |
 | PyTorch Internals | Tensor operations, memory management |
-| Operating System | Memory allocation, scheduling, cache behavior |
+| Operating System | Memory allocation |
 | Statistics | Variance, scaling trends, distribution analysis |
 
 ---
