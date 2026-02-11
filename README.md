@@ -1,4 +1,4 @@
-# Physical AI Systems: A Systems-First Exploration
+﻿# Physical AI Systems: A Systems-First Exploration
 
 <div align="center">
 
@@ -22,8 +22,14 @@ This repository investigates the **fundamental constraints** of physics simulati
 
 ## 📖 Table of Contents
 
-- [Motivation](#-motivation) | [Design Philosophy](#-design-philosophy) | [Repository Structure](#-repository-structure)
-- [Weekly Experiments](#-weekly-experiments) | [Getting Started](#-getting-started) | [Key Takeaways](#-key-takeaways)
+|Sections|
+|:-------------------------|
+| [Motivation](#-motivation) |
+| [Design Philosophy](#-design-philosophy) |
+| [Repository Structure](#-repository-structure) |
+| [Weekly Experiments](#-weekly-experiments) |
+| [Getting Started](#-getting-started) |
+| [Key Takeaways](#-key-takeaways) |
 
 ---
 
