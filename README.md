@@ -1,195 +1,180 @@
-# AI Systems Engineering – Mini Projects
+# Physical AI Systems: A Systems-First Exploration
 
-This repository contains a collection of **small, focused mini projects** designed to build intuition and hands-on experience for an **AI Systems Engineer (SDE-level)** role.
+<div align="center">
 
-Each project is intentionally scoped to explore how **algorithms, mathematis, and ML workloads interact with real system constraints** such as:
-- Memory usage
-- Latency
-- Batch size
-- Sequence length
-- Hardware and OS behavior
+**Building intuition for the constraints that govern Physical AI systems**
 
-The goal is **not** to build large applications, but to develop **systems-level thinking** through controlled experiments.
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
----
-
-## Motivation
-
-Modern AI systems (especially LLMs) fail or succeed not solely due to model architecture, but because of **system-level constraints**:
-
-- Memory pressure – RAM/VRAM limitations
-- Compute scaling – CPU/GPU utilization patterns
-- Latency tail behavior – p95/p99 performance characteristics
-- Hardware limits – Physical constraints and bottlenecks
-
-### Core Questions This Repository Answers
-
-- Why does increasing embedding dimension hurt latency?
-- When does batching stop helping?
-- How do sequence length and batch size amplify memory usage?
-- Why does latency grow non-linearly even for simple operations?
-
-These are **AI Systems Engineering questions**, not generic ML theory.
+</div>
 
 ---
 
-## Repository Structure
+## 🎯 Core Question
+
+> *What limits intelligent behavior in physical systems **before learning even begins**?*
+
+This repository investigates the **fundamental constraints** of physics simulation — numerical stability, performance bottlenecks, and hardware limitations — that shape what's possible in robotics and embodied AI.
+
+---
+
+## 📖 Table of Contents
+
+- [Motivation](#-motivation) | [Design Philosophy](#-design-philosophy) | [Repository Structure](#-repository-structure)
+- [Weekly Experiments](#-weekly-experiments) | [Getting Started](#-getting-started) | [Key Takeaways](#-key-takeaways)
+
+---
+
+## 🔬 Motivation
+
+Modern robotics and reinforcement learning depend on **high-fidelity, high-throughput simulation**:
+
+- **Training RL agents** — millions of environment steps required
+- **Policy validation** — verify control strategies before real-world deployment  
+- **Sim-to-real transfer** — bridge the gap between virtual and physical systems
+
+Yet simulation itself operates under **hard constraints**:
+
+| Constraint | Trade-off |
+|:-----------|:----------|
+| **Accuracy** | Higher precision → slower computation |
+| **Stability** | Smaller timesteps → more steps required |
+| **Throughput** | Parallelization → synchronization overhead |
+
+**You cannot optimize all three simultaneously.** This repository makes these trade-offs explicit through **first-principles experiments**.
+
+---
+
+## 🧭 Design Philosophy
+
+Every experiment follows these principles:
+
+**1. Bottom-Up Implementation** — Start from discrete physics loops, not abstracted frameworks  
+**2. Systems-Level Metrics** — Measure latency, memory bandwidth, numerical drift, scaling behavior  
+**3. Isolated Variables** — Study one concept at a time with no entangled effects  
+**4. Reproducible & Interpretable** — Clear experimental setup, visualizations, and documented insights  
+**5. Interview-Ready Depth** — Each module answers real systems questions for production robotics/RL
+
+---
+
+## 📁 Repository Structure
 
 ```
-MINI_PROJECTS/
-│
+Mini_Project_Series/
 ├── notebooks/
-│   ├── week1/
-│   │   ├── week_1.ipynb   # Week 1: Embedding Dimension vs Latency & Memory
-│   │   └── README.md      # Week 1 documentation
-│   └── week2/             
-│       ├── week_2.ipynb   # Week 2: Latency Distribution and Tail Behavior
-│       └── README.md      # Week 2 documentation
-│
-├── README.md              # Main project documentation
-├── pyproject.toml         # Python project configuration
-├── requirements.txt       # Pip dependencies
-├── uv.lock                # uv dependency lock file
-├── .python-version        # Python version specification
-├── .gitignore             # Git ignore rules
-└── .venv/                 # Local virtual environment (not committed)
+│   ├── week_01_discrete_physics_cost/      # ✅ Completed
+│   ├── week_02_integrator_stability/       # ⌛ Pending
+│   └── ...
+├── docs/
+│   ├── flagships.md                        # Project roadmap
+│   └── progress.md                         # Weekly updates
+├── requirements.txt
+└── README.md
 ```
 
----
-
-## Projects
-
-| Week | Mini Project | Focus Area | Status |
-|:----:|:------------|:-----------|:------:|
-| 1 | Embedding Dimension vs Latency & Memory | System Performance Analysis | Complete |
-| 2 | Latency Distribution and Tail Behavior | Statistical Latency Analysis | Complete |
-
-### Project Characteristics
-
-Each mini project is:
-- Time-boxed – Focused and manageable scope
-- Experiment-driven – Data and measurement focused
-- Single insight – One key systems concept per project
-- Well-documented – Clear observations and conclusions
+Each weekly module includes: Jupyter notebook, README with methodology, visualizations, standalone runnable code.
 
 ---
 
-### AI Systems Engineer Takeaway
+## 🗓️ Weekly Experiments
 
-**Key Insight:** Performance in AI systems is governed by interacting factors, not single parameters.
+| Week | Theme | Key Question | Status |
+|:----:|:------|:-------------|:------:|
+| **01** | **Discrete Physics Step Cost** | How does simulation complexity scale with object count? | ✅ |
+| **02** | **Integrator Stability** | When do Euler/RK4/Verlet methods diverge under varying timesteps? | ⌛ |
+| **03** | **Cache & Memory Patterns** | How does data layout affect throughput in tight simulation loops? | 📋 |
+| **04** | **Collision Detection Bottlenecks** | Where does broadphase vs narrowphase dominate? | 📋 |
+| **05** | **Parallel Simulation Strategies** | CPU threading vs GPU offload — when does each win? | 📋 |
+| **06** | **Sim-to-Real Gap Analysis** | What numerical artifacts cause policy transfer failures? | 📋 |
 
-Embedding dimension, batch size, and sequence length multiply together to determine memory footprint and compute cost. Once hardware thresholds are crossed, latency increases non-linearly.
-
-#### Real-World Applications
-
-This insight directly applies to:
-- LLM inference serving – Optimizing throughput and latency
-- GPU memory planning – Capacity estimation and allocation
-- Batch size tuning – Finding the sweet spot for your workload
-- System design interviews – Demonstrating production-level thinking
-
----
-
-## Tech Stack
-
-- **Python 3.10+**
-- **PyTorch** – Deep learning framework
-- **Pandas** – Data manipulation and analysis
-- **Matplotlib** – Visualization
-- **Jupyter Notebook** – Interactive experimentation
+**Legend:** ✅ Completed | ⌛ In Progress | 📋 Planned
 
 ---
 
-## How to Run
+## 🚀 Getting Started
 
 ### Prerequisites
-
-- Python 3.10 or higher
-- [uv](https://github.com/astral-sh/uv) (recommended) or pip
-
-### 1. Clone the Repository
-
 ```bash
-git clone <repository-url>
+Python 3.8+, NumPy, Matplotlib, Jupyter
+```
+
+### Installation
+```bash
+# Clone and setup
+git clone <repo-url>
 cd Mini_Project_Series
-```
-
-### 2. Install Dependencies
-
-#### Using uv (recommended):
-
-```bash
-uv sync
-```
-
-#### Using pip:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\\Scripts\\activate
 pip install -r requirements.txt
+
+# Launch Jupyter
+jupyter notebook notebooks/
 ```
 
-### 3. Run Jupyter Notebook
-
-```bash
-jupyter notebook notebooks/week1/week_1.ipynb
-```
-
-Or launch Jupyter Lab:
-
-```bash
-jupyter lab
-```
+### Run Your First Experiment
+Navigate to [week_01_discrete_physics_cost](notebooks/week_01_discrete_physics_cost/) and open the notebook.
 
 ---
 
-## Future Extensions
+## ❌ What This Is *Not*
 
-Planned enhancements and experiments:
+| This Repository | What It's NOT |
+|:----------------|:--------------|
+| ✅ Systems constraints analysis | ❌ ML model tutorials |
+| ✅ Performance profiling | ❌ Physics engine implementation |
+| ✅ First-principles experiments | ❌ Framework comparisons |
+| ✅ Numerical stability studies | ❌ Benchmark leaderboards |
 
-### Performance Analysis
-- Latency distribution analysis (p50, p95, p99)
-- Throughput measurement (tokens/second, requests/second)
-- Tail latency optimization techniques
-
-### Hardware & Optimization
-- GPU-based experiments (CUDA profiling)
-- Reduced precision (FP16, BF16, INT8 quantization)
-- Multi-process and concurrency effects
-
-### Production Scenarios
-- Cloud-based inference simulations
-- Distributed inference patterns
-- Request batching and scheduling strategies
+**Focus:** Understanding **why** certain approaches work, not just **what** works.
 
 ---
 
-## Learning Philosophy
+## 🎓 Key Takeaways
 
-This repository follows a **systems-first learning approach**:
+After working through this repository, you should be able to:
 
-- Measure before optimizing – Data-driven decisions
-- Prefer numbers over intuition – Quantitative over qualitative
-- Document observations clearly – Reproducible insights
-- Treat performance as a system property – Not just code quality
+✅ **Explain** why fixed-timestep simulation is insufficient for stiff systems  
+✅ **Predict** where bottlenecks emerge in scaling physics simulations  
+✅ **Diagnose** numerical instability in integrators before training RL agents  
+✅ **Design** simulation pipelines that balance accuracy, speed, and stability  
+✅ **Articulate** the systems-level constraints that govern Physical AI
 
----
-
-## Author
-
-Built as part of a structured **AI Systems Engineering learning path**, focusing on:
-- Long-term skill development
-- Hardware-aware system design
-- Production-ready engineering thinking
-- Deep understanding over surface-level knowledge
+This knowledge is **foundational** for:
+- Building production-scale robotics simulators
+- Debugging RL training instabilities
+- Optimizing sim-to-real transfer
+- Technical interviews for robotics/AI systems roles
 
 ---
 
-## Disclaimer
+## 📊 Progress & Roadmap
 
-These experiments are **educational simplifications** and not intended to replicate full production LLM inference pipelines. They are designed to:
-- Build systems-level intuition
-- Understand performance characteristics
-- Practice measurement and analysis
-- NOT benchmark real-world models
+🚧 **Actively evolving** — new experiments added weekly.
+
+See [progress.md](docs/progress.md) for detailed updates and [flagships.md](docs/flagships.md) for the full roadmap.
+
+---
+
+## 🤝 Contributing
+
+Contributions, discussions, and critical feedback are welcome!
+
+- **Found an issue?** Open an issue with reproducible details
+- **Have an idea?** Suggest new experiments or improvements
+- **Want to collaborate?** Reach out via discussions
+
+---
+
+## 📜 License
+
+MIT License — see LICENSE file for details.
+
+---
+
+<div align="center">
+
+**Built with a systems-first mindset for Physical AI**
+
+⭐ Star this repo if you find it useful | 🔔 Watch for weekly updates
+
+</div>
